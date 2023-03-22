@@ -1,0 +1,110 @@
+{% load crispy_forms_tags %}
+<!Doctype html>
+<html lang="en">
+  <head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+  <title>Project Deatils</title>
+  </head>
+  
+  <body class="container bg-light">
+
+    <form method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input value="submit" type="submit">
+    </form>
+    <!-- Start Header form -->
+    <div class="text-center pt-5">
+      <img src="https://i.ibb.co/8cDgdFX/Logo.png" alt="network-logo" width="72" height="72" />
+      <h2>Project Details</h2>
+      <p>
+        Welcome to Project Management System
+      </p>
+    </div>
+    <!-- End Header form -->
+    
+    <!-- Start Card -->
+    <div class="card">
+      <!-- Start Card Body -->
+      <div class="card-body">
+        <!-- Start Form -->
+        <form method="POST" id="bookingForm" class="needs-validation" autocomplete="off">
+          {% csrf_token %}
+          <!-- Start Input Name -->
+          <div class="form-group"> 
+            {{form.title | as_crispy_field}} 
+        
+            <small class="form-text text-muted">Please fill your Project Title</small>
+          </div>
+          <!-- End Input Name -->
+          
+          <!-- Start Input Body -->
+          <div class="form-group">
+            
+            {{form.description | as_crispy_field}} 
+            
+            <small class="form-text text-muted">We'll never share your Body with anyone else.</small>
+          </div>
+          <!-- End Input Body -->
+          
+          {% comment %} <!-- Start Input Technology -->
+          <div class="form-group">
+              
+            {{form.technology | as_crispy_field}} 
+          
+          <small class="form-text text-muted">Please select your Technology</small>
+          </div>
+          <!-- End Input Technology --> {% endcomment %}
+
+          <!-- Start Input Date , Start Time and End Time -->
+          <div class="form-row">
+            <!-- Start Input Date -->
+            <div class="form-group col-md-4">
+              <div>
+                {{form.start_date | as_crispy_field}}
+              
+              
+              </div>
+              <small class="form-text text-muted1">Please choose Project start date</small>
+            </div>
+            <!-- End Input Date -->
+            <!-- Start Input Date -->
+            <div class="form-group col-md-4">
+              <div>
+                {{form.end_date | as_crispy_field}}
+              
+              
+              </div>
+              <small class="form-text text-muted1">Please choose Expected Project End date</small>
+            </div>
+            <!-- End Input Date -->
+  
+            
+          </div>
+          <!-- End Input Date , Start Time and End Time -->
+  
+          <!-- Start Submit Button -->
+          <input type="submit" value="Submit Data" class="btn btn-primary btn-block col-lg-2">
+          <!-- End Submit Button -->
+        </form>
+        <!-- End Form -->
+      </div>
+      <!-- End Card Body -->
+    </div>
+    <!-- End Card -->
+    <footer>
+      <div class="my-4 text-muted text-center">
+        <p>© Krutarth Patel</p>
+      </div>
+    </footer>
+
+
+</body>
+</html>
+
